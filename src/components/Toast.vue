@@ -111,6 +111,7 @@ export default defineComponent({
 
 .toast {
   position: absolute;
+  pointer-events: auto;
 }
 
 .toast--top {
