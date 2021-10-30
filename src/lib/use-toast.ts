@@ -18,8 +18,13 @@ export const useToast = () => {
     state.isToastActive = !state.isToastActive;
   };
 
+  const handleClose = () => {
+    state.isToastActive = false;
+  }
+
   return {
     ...toRefs(state),
     handleClick,
+    handleClose,
   };
 };

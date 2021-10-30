@@ -5,6 +5,7 @@
     :animation-type="'right'"
     :style="style"
   >
+    <button @click="handleClose">Close</button>
     <h2>Sample Heading</h2>
     <p>TestTestTest</p>
   </Toast>
@@ -21,7 +22,7 @@ export default defineComponent({
     Toast,
   },
   setup() {
-    const { isToastActive, handleClick, position } = useToast();
+    const { isToastActive, position, handleClick, handleClose } = useToast();
 
     const style: CSSProperties = {
       background: 'red',
@@ -30,8 +31,9 @@ export default defineComponent({
 
     return {
       isToastActive,
-      handleClick,
       position,
+      handleClick,
+      handleClose,
       style,
     };
   },
