@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, CSSProperties } from 'vue';
+import { defineComponent } from 'vue';
 import Toast from './components/Toast.vue';
 import { useToast } from './lib/use-toast';
 
@@ -22,12 +22,12 @@ export default defineComponent({
     Toast,
   },
   setup() {
-    const { isToastActive, position, handleClick, handleClose } = useToast();
+    const { isToastActive, position, customToastCss, handleClick, handleClose } = useToast();
 
-    const style: CSSProperties = {
+    const style = customToastCss({
       background: 'red',
       padding: '20px',
-    };
+    });
 
     return {
       isToastActive,
