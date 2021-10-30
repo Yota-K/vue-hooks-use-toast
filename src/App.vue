@@ -1,9 +1,9 @@
 <template>
   <Toast
-    :style="style"
     :is-toast-active="isToastActive"
     :position="'topRight'"
     :animation-type="'right'"
+    :style="style"
   >
     <h2>Sample Heading</h2>
     <p>TestTestTest</p>
