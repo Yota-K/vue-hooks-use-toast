@@ -5,21 +5,30 @@ type State = {
   isToastActive: boolean;
   duration: number;
   position: PositionType;
+  isAutoClose: boolean;
 };
 
 export const useToast = () => {
   const state = reactive<State>({
     isToastActive: false,
-    duration: 500,
+    duration: 3000,
     position: 'top',
+    isAutoClose: true,
   });
 
   const customToastCss = (css: CSSProperties) => {
     return css;
-  }
+  };
 
   const handleClick = () => {
-    state.isToastActive = !state.isToastActive;
+    const { isToastActive, duration, isAutoClose } = toRefs(state);
+    isToastActive.value = !isToastActive.value;
+
+    if (isToastActive.value && isAutoClose.value) {
+      setTimeout(() => {
+        handleClose();
+      }, duration.value);
+    }
   };
 
   const handleClose = () => {

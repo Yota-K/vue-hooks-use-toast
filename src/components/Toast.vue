@@ -40,6 +40,16 @@ export default defineComponent({
       required: false,
       default: 'bottom',
     },
+    duration: {
+      type: Number,
+      required: false,
+      default: 3000,
+    },
+    autoClose: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   setup(props) {
     const { position, animationType } = toRefs(props);
