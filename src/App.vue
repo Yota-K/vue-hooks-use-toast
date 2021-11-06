@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Toast from './components/Toast.vue';
+import Toast from './component/Toast.vue';
 import { useToast } from './lib/use-toast';
 
 export default defineComponent({
