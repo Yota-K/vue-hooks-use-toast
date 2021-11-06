@@ -1,7 +1,7 @@
 <template>
   <Toast
     :is-toast-active="isToastActive"
-    :position="'topRight'"
+    :position="'bottomRight'"
     :animation-type="'right'"
     :style="style"
   >
@@ -22,7 +22,12 @@ export default defineComponent({
     Toast,
   },
   setup() {
-    const { isToastActive, position, customToastCss, handleClick, handleClose } = useToast();
+    const { isToastActive, toastConfig, customToastCss, handleClick, handleClose } = useToast();
+
+    toastConfig({
+      duration: 3000,
+      isAutoClose: false,
+    });
 
     const style = customToastCss({
       background: 'red',
@@ -31,7 +36,6 @@ export default defineComponent({
 
     return {
       isToastActive,
-      position,
       handleClick,
       handleClose,
       style,

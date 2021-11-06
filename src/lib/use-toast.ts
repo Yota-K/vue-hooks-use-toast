@@ -3,9 +3,9 @@ import { PositionType } from '../type/position-type';
 
 type State = {
   isToastActive: boolean;
-  duration: number;
+  duration: number | undefined;
   position: PositionType;
-  isAutoClose: boolean;
+  isAutoClose: boolean | undefined;
 };
 
 export const useToast = () => {
@@ -15,6 +15,11 @@ export const useToast = () => {
     position: 'top',
     isAutoClose: true,
   });
+
+  const toastConfig = (newState: Partial<State>) => {
+    state.duration = newState.duration;
+    state.isAutoClose = newState.isAutoClose;
+  };
 
   const customToastCss = (css: CSSProperties) => {
     return css;
@@ -37,6 +42,7 @@ export const useToast = () => {
 
   return {
     ...toRefs(state),
+    toastConfig,
     customToastCss,
     handleClick,
     handleClose,
